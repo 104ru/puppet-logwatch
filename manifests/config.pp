@@ -1,5 +1,9 @@
+# @summmary
+#   This class creates logwatch configuration files.
 #
-class logwatch::config inherits logwatch {
+class logwatch::config (
+  Hash[String,Hash[String,String]] $ignore = []
+) inherits logwatch {
 
   file { 'logwatch.conf':
     ensure  => file,
@@ -22,4 +26,7 @@ class logwatch::config inherits logwatch {
     content => "###### REGULAR EXPRESSIONS IN THIS FILE WILL BE TRIMMED FROM REPORT OUTPUT #####\n",
     order   => '01',
   }
+
+  # pull ignores from hiera
+  create_resources('logwatch::ignore', $ignore)
 }

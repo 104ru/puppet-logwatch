@@ -1,4 +1,7 @@
-# Private class
+# @api private
+#
+# @summary
+#   Private class providing default parameters for others.
 #
 class logwatch::params {
 

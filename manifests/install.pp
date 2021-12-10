@@ -1,3 +1,5 @@
+# @summary
+#   This class installs logwatch packages.
 #
 class logwatch::install inherits logwatch {
 

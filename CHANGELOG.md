@@ -1,5 +1,15 @@
 # Change Log
 
+## v2.1.0 2021-04-03
+### Summary
+
+- Use puppet type validation instead of stdlib
+- Add a parameter ignore to the main class for
+  convenience with hiera
+- Add puppet strings documentation
+- Use PDK 2.0
+- Fix rubocop errors
+
 ## v2.0.0 2017-05-12
 ### Summary
 

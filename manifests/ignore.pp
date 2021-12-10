@@ -1,4 +1,9 @@
-# add entries to ignore.conf
+# @summary
+#   Class adding entries to ignore.conf
+#
+# @param regex
+#   Regular expression defining log entries to ignore.
+#
 define logwatch::ignore (
   $regex,
 ) {

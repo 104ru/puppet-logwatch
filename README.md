@@ -1,6 +1,6 @@
 # logwatch
 
-[![Build Status](https://travis-ci.org/jonmosco/puppet-logwatch.svg?branch=master)](https://travis-ci.org/jonmosco/puppet-logwatch)
+[![Build Status](https://api.travis-ci.com/104ru/logwatch.svg?branch=master)](https://travis-ci.com/github/104ru/logwatch)
 
 #### Table of Contents
 
@@ -10,14 +10,12 @@
   ¦ * [What logwatch affects](#what-logwatch-affects)
   ¦ * [Setup requirements](#setup-requirements)
 4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-6. [Limitations - OS compatibility, etc.](#limitations)
-7. [Development - Guide for contributing to the module](#development)
-    * [Contributing](#contributing)
 
 ## Overview
 
 The logwatch module configures logwatch on Linux bases systems.
+This is a fork of [jonnyx-logwatch](https://github.com/jonmosco/puppet-logwatch)
+module. Improved to use PDK 2.0, puppet native typing and use of hiera.
 
 ## Module Description
 
@@ -65,52 +63,13 @@ Add a regex to `ignore.conf` to suppress that output from the logwatch report
   }
 ```
 
-## Reference
+Alternatievely can be done with hiera:
 
-### Classes
-
-#### Public Classes
-
-* logwatch: Main class, includes all other classes.
-* logwatch::ignore: Manage the contents of `ignore.conf`
-
-#### Private Classes
-
-* logwatch::install: Handles the packages.
-* logwatch::config: Handles the configuration file.
-
-#### Parameters
-
-##### `logwatch`
-
-```
-output
-format
-mail_to
-mail_from
-range
-detail
-service
-package_ensure
-package_name
+```yaml
+  logwatch::ignore:
+    my_first_rule:
+      regex: 'ignore_lines_that_match_this_regex'
+    my_second_rule:
+      regex: 'ignore_lines_that_match_that_regex'
 ```
 
-##### `logwatch::ignore`
-
-```
-regex
-```
-
-## Limitations
-
-This module has been built on and tested against Puppet 3.
-
-The module has been tested on:
-
-* RedHat Enterprise Linux 6/7
-* CentOS 6/7
-* Ubuntu 12.04/14.04
-
-## Development
-
-### Contributing
